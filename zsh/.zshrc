@@ -154,15 +154,22 @@ reboot() {
 vfp() {
   # Stolen from <https://github.com/endyman/zshrc/blob/master/.zshrc>
 
-  for pp in $(find $1 -name \*.pp); do
-    echo -n "${pp}: "
-    puppet parser validate ${pp}
-    puppet-lint --no-80chars-check --no-class_inherits_from_params_class-check ${pp}
-  done && \
+  if [[ -z "$1" ]]; then
+    dir='.'
+  else
+    dir="$1"
+  fi
 
-  for erb in $(find $1 -name \*.erb); do
-    echo -n "${erb}: "
-    erb -x -T '-' ${erb} | ruby -c
+  for f in $(find ${dir} -name \*.pp); do
+    out=$(puppet parser validate ${f})
+    [[ $? != 0 ]] && echo -n "${f}: ${out}"
+  done
+
+  puppet-lint --no-80chars-check --no-class_inherits_from_params_class-check ${dir} && \
+
+  for f in $(find ${dir} -name \*.erb); do
+    out=$(erb -x -T '-' ${f} | ruby -c)
+    [[ $? != 0 ]] && echo -n "${f}: ${out}"
   done
 }
 
