@@ -160,17 +160,23 @@ vfp() {
     dir="$1"
   fi
 
+  n=0
   for f in $(find ${dir} -name \*.pp); do
     out=$(puppet parser validate ${f})
     [[ $? != 0 ]] && echo -n "${f}: ${out}"
+    n=$((n+1))
   done
+  echo "Checked ${n} Puppet files.."
+  n=0
 
   puppet-lint --no-80chars-check --no-class_inherits_from_params_class-check ${dir} && \
 
   for f in $(find ${dir} -name \*.erb); do
     out=$(erb -x -T '-' ${f} | ruby -c)
     [[ $? != 0 ]] && echo -n "${f}: ${out}"
+    n=$((n+1))
   done
+  echo "Checked ${n} ERB files.."
 }
 
 #TODO:
