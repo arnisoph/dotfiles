@@ -132,6 +132,14 @@ fi
 
 
 # MISC
+dos2unix() {
+  in=$1
+  out=$in
+
+  perl -p -e 's/(\r\n|\n|\r)/\n/g' $in > ${in}.dos2unix.convert
+  mv ${in}.dos2unix.convert $out
+}
+
 l8security() {
   command="$1"
 
