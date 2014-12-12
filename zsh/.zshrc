@@ -132,6 +132,21 @@ fi
 
 
 # MISC
+rir() {
+  old="$1"
+  new="$2"
+  dir="$3"
+
+  [[ -z "$dir" ]] && dir=.
+  files=( $(find "${dir}" -type f) )
+
+  for f in ${files[@]}; do
+    out=$(ed -s "${f}" <<< $',s/'${old}$'/'${new}$'/g\nw' 2>&1)
+    [[ $? != 0 ]] && echo "${f}: ${out}"
+  done
+}
+
+
 dos2unix() {
   in=$1
   out=$in
