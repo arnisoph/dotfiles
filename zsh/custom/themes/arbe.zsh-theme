@@ -1,27 +1,35 @@
-local return_code="%(?.. - %b%F{cyan}[%B%F{red}%?%b%F{cyan}]%f)"
+#!/bin/zsh
+
+local return_code="%(?.. - %F{cyan}[%B%F{red}%?%b%F{cyan}]%f)"
+
+host=''
+[[ -n $SSH_CLIENT || $(who am i | tr -s ' ' | cut -d' ' -f2) =~ "pts/*" ]] && host='%F{yellow}@%F{cyan}%m'
 
 function my_uh() {
-  if [[ "$(id -u)" == 0 ]]; then
-    echo '%B%F{red}%n%F{yellow}@%F{cyan}%m%f%b'
-  else
-    echo '%B%F{green}%n%F{yellow}@%F{cyan}%m%f%b'
-  fi
+  host=$1
+  user_color='{green}'
+  [[ $UID == 0 ]] && user_color='{red}'
+
+  echo "%B%F${user_color}%n${host}%f%b"
 }
 
 function my_dir() {
-  echo ' - %F{cyan}[%B%F{yellow}%~%b%F{cyan}]%f'
+  path_color='{yellow}'
+  [[ ! -w $PWD ]] && path_color='{red}'
+  echo " - %F{cyan}[%B%F${path_color}%~%b%F{cyan}]%f"
 }
 
-
 function my_load() {
-  if [[ "$(id -u)" == 0 ]]; then
-    echo " - %F{cyan}[%F{yellow}$(uptime | sed 's/.*load average: //' | awk -F', ' '{print $1}')/$(uptime | sed 's/.*load average: //' | awk -F', ' '{print $2}')/$(uptime | sed 's/.*load average: //' | awk -F', ' '{print $3}')%F{cyan}]%f"
-  fi
+  [[ $UID == 0 ]] && echo " - %F{cyan}[%F{yellow}$(uptime | sed 's/.*load average: //' | awk -F', ' '{print $1}')/$(uptime | sed 's/.*load average: //' | awk -F', ' '{print $2}')/$(uptime | sed 's/.*load average: //' | awk -F', ' '{print $3}')%F{cyan}]%f%b"
+}
+
+function my_jobs() {
+  [[ $(jobs | wc -l) -gt 0 ]] && echo ' - %F{cyan}[%B%F{green}%j%b%F{cyan}]%f'
 }
 
 function my_git() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo "$(parse_git_dirty)%F{yellow}${ref#refs/heads/}%f"
+  echo " - $(parse_git_dirty)%F{yellow}${ref#refs/heads/}%f"
 }
 
 function my_time() {
@@ -29,12 +37,11 @@ function my_time() {
 }
 
 
-
 PROMPT=$'
-%F{cyan}┌──[ $(my_uh)$(my_dir)$(my_load)${return_code}
+%F{cyan}┌──[ $(my_uh ${host})$(my_dir)$(my_load)${return_code}$(my_jobs)$(my_git)
 %F{cyan}└──[%f '
 
-RPROMPT='$(my_git)$(my_time)'
+#RPROMPT='$(my_git)$(my_time)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{yellow}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%f"

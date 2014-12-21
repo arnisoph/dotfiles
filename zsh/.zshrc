@@ -85,14 +85,13 @@ zstyle ':completion:*' special-dirs true
 zstyle ':completion:*' accept-exact false
 _comp_options+=(globdots)
 
-
 # ALIASES
 alias ..='cd ../'
 alias ...='cd ../../'
-alias ....='cd ../../../'
-alias .....='cd ../../../../'
 
 alias atc_uptodate='apt-get update && apt-get upgrade'
+
+alias df='df -i'
 
 alias grep="grep -E ${GREP_OPTIONS}"
 
@@ -110,15 +109,19 @@ alias salt='time salt -v'
 alias sudo='sudo ' # Make alias lookup
 alias s='sudo ' # Make alias lookup
 
+alias ta='tail -f'
+alias tree='tree -aFC --charset=ascii'
+
 alias zshrc='vim ~/.zshrc'
 
 if [[ $_os != Darwin ]]; then
-
   alias chgrp='chgrp --preserve-root'
   alias chmod='chmod --preserve-root'
   alias chown='chown --preserve-root'
   alias cp='cp -i'
   alias diff="colordiff -u"
+  alias fwrules='iptables -nvL --line-numbers'
+  alias fw6rules='ip6tables -nvL --line-numbers'
   alias ls="ls --color=tty"
   alias mv='mv -i'
   alias ports='netstat -tulpena'
@@ -132,46 +135,23 @@ fi
 
 
 # MISC
-rir() {
-  old="$1"
-  new="$2"
-  dir="$3"
-
-  [[ -z "$dir" ]] && dir=.
-  files=( $(find "${dir}" -type f) )
-
-  for f in ${files[@]}; do
-    out=$(ed -s "${f}" <<< $',s/'${old}$'/'${new}$'/g\nw' 2>&1)
-    [[ $? != 0 ]] && echo "${f}: ${out}"
-  done
-}
-
-
-dos2unix() {
-  in=$1
-  out=$in
-
-  perl -p -e 's/(\r\n|\n|\r)/\n/g' $in > ${in}.dos2unix.convert
-  mv ${in}.dos2unix.convert $out
-}
-
 l8security() {
   command="$1"
 
   echo "Are you sure? Type 'YES, do as I say' now or abort with ^C:"
   read -r resp
   if [[ "$resp" == 'YES, do as I say' ]]; then
-    echo -e "\nExecuting ${command} in 10 seconds.."
-    zsh <<< "sleep 10 && ${command}" &!
+    echo -e "\nExecuting ${command}.."
+    zsh <<< "${command}" &!
   fi
 }
 
 halt() {
-  l8security /sbin/halt
+  l8security "/sbin/shutdown -hf +1"
 }
 
 reboot() {
-  l8security /sbin/reboot
+  l8security "/sbin/shutdown -rf +1"
 }
 
 vfp() {
