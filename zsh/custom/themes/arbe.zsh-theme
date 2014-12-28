@@ -36,9 +36,20 @@ function my_time() {
   echo ' %F{green}%D{%H:%M:%S}'
 }
 
+function cmd_exec_time() {
+  [[ -z $ETIME ]] && ETIME=0
+  echo " - %F{cyan}[%B%F{yellow}$(convertsecs ${ETIME})%b%F{cyan}]%f"
+}
+
+function convertsecs() {
+  ((h=${1}/3600))
+  ((m=(${1}%3600)/60))
+  ((s=${1}%60))
+  printf "%02dh %02dm %02ds\n" $h $m $s
+}
 
 PROMPT=$'
-%F{cyan}┌──[ $(my_uh ${host})$(my_dir)$(my_load)${return_code}$(my_jobs)$(my_git)
+%F{cyan}┌──[ $(my_uh ${host})$(my_dir)$(cmd_exec_time)$(my_load)${return_code}$(my_jobs)$(my_git)
 %F{cyan}└──[%f '
 
 #RPROMPT='$(my_git)$(my_time)'

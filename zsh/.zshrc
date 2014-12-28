@@ -91,8 +91,6 @@ alias ...='cd ../../'
 
 alias atc_uptodate='apt-get update && apt-get upgrade'
 
-alias df='df -i'
-
 alias grep="grep -E ${GREP_OPTIONS}"
 
 alias j='jobs -l'
@@ -180,6 +178,22 @@ vfp() {
     n=$((n+1))
   done
   echo "Checked ${n} ERB files.."
+}
+
+preexec() {
+    typeset -gi CALCTIME=1
+    typeset -gi CMDSTARTTIME=SECONDS
+}
+
+precmd() {
+    if (( CALCTIME )) ; then
+        typeset -gi ETIME=SECONDS-CMDSTARTTIME
+    fi
+    typeset -gi CALCTIME=0
+}
+
+checksum() {
+  sha256sum $@
 }
 
 #TODO:
