@@ -365,6 +365,7 @@ noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 map <leader>q :e ~/buffer<cr>
 
 " Toggle paste mode on and off
+set paste
 map <leader>pp :setlocal paste!<cr>
 set pastetoggle=<F4>
 
