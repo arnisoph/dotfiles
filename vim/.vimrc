@@ -366,7 +366,7 @@ map <leader>q :e ~/buffer<cr>
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
-set pastetoggle=<F2>
+set pastetoggle=<F4>
 
 " Extra terminal things
 if (($TERM == "rxvt-unicode") || ($TERM =~ "xterm") || ($TERM =~ "screen")) && (&termencoding == "")
@@ -475,10 +475,10 @@ let g:vim_markdown_folding_disabled=1
 
 " ##############################
 " SECTION NERDTREE
-map <C-n> :NERDTreeToggle<CR>
+nmap <F2> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
+let NERDTreeShowHidden=1
 
 
 " ##############################
