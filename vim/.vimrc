@@ -229,6 +229,9 @@ set tabstop=2
 "set wrap "Wrap lines
 set nowrap
 
+" syntax-highlighting is slow for long lines
+set synmaxcol=200
+
 
 
 " ##############################
