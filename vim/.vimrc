@@ -82,8 +82,9 @@ set tm=500
 
 " line numbers
 set number
-autocmd InsertEnter * :set nonumber
-autocmd InsertLeave * :set number
+"autocmd InsertEnter * :set nonumber
+"autocmd InsertLeave * :set number
+nmap <F3> :set invnumber<CR>
 
 " cursor line
 set cursorline
