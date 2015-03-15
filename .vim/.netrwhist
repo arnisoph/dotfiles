@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/arnoldbechtoldt/Documents/dev/github/saltstack-repos-formula/vagrant/nodes'
+let g:netrw_dirhist_2='/Users/arnoldbechtoldt/Documents/dev/github/saltstack-skeleton-formula'
+let g:netrw_dirhist_3='/Users/arnoldbechtoldt/Documents/dev/github/saltstack-skeleton-formula/states'
+let g:netrw_dirhist_4='/Users/arnoldbechtoldt/Documents/dev/github/saltstack-skeleton-formula'
+let g:netrw_dirhist_5='/Users/arnoldbechtoldt/Documents/dev/github/saltstack-mysql-formula/vagrant/snippets'
+let g:netrw_dirhist_6='/Users/arnoldbechtoldt/Documents/dev/github/saltstack-mysql-formula/.git/modules'
+let g:netrw_dirhist_7='/Users/arnoldbechtoldt/Documents/dev/github/saltstack-mysql-formula/.git/modules/vagrant'
+let g:netrw_dirhist_8='/Users/arnoldbechtoldt/Documents/dev/github/saltstack-mysql-formula/.git/modules/vagrant/nodes'
+let g:netrw_dirhist_9='/Users/arnoldbechtoldt/Documents/dev/github/saltstack-crypto-formula/crypto'
