@@ -16,6 +16,6 @@
 [submodule "vim/.vim/bundle/syntastic"]
 	path = vim/.vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "vim/.vim/bundle/neocomplete.vim"]
-	path = vim/.vim/bundle/neocomplete.vim
-	url = https://github.com/Shougo/neocomplete.vim.git
+[submodule "vim/.vim/bundle/supertab"]
+	path = vim/.vim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
