@@ -92,6 +92,10 @@ set cursorline
 :nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 :nnoremap <silent> <Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
 
+" appropriate file-defined vim settings
+set modeline
+set modelines=5
+
 
 
 " ##############################
@@ -466,9 +470,6 @@ endfunction
 call pathogen#infect()
 syntax on
 filetype plugin indent on
-
-set modeline
-set modelines=5
 
 let g:vim_markdown_folding_disabled=1
 
