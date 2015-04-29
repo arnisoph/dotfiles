@@ -170,7 +170,12 @@ vfp() {
   echo "Checked ${n} Puppet files.."
   n=0
 
-  puppet-lint --no-80chars-check --no-class_inherits_from_params_class-check ${dir} && \
+  puppet-lint \
+    --no-80chars-check \
+    --no-class_inherits_from_params_class-check \
+    --no-documentation-check \
+    --with-filename \
+    ${dir} && \
 
   for f in $(find ${dir} -name \*.erb); do
     out=$(erb -x -T '-' ${f} | ruby -c)
