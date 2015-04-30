@@ -175,6 +175,7 @@ vfp() {
     --no-class_inherits_from_params_class-check \
     --no-documentation-check \
     --with-filename \
+    --no-double_quoted_strings-check \
     ${dir} && \
 
   for f in $(find ${dir} -name \*.erb); do
