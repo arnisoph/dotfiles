@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# vim: ts=4 sw=4 et
+"""
+FIXME
+"""
+
+import json
+import os
+import sys
+import yaml
+
+
+def load_file(file_path):
+    file_name, file_type = os.path.splitext(file_path)
+    loader = None
+
+    if file_type == '.json':
+        loader = json
+    else:
+        loader = yaml
+
+    stream = file(file_path)
+    data = loader.load(stream)
+    return data
+
+
+def main(argv):
+    project_dir = argv[1]
+
+    if os.path.isfile('{0}.yaml'.format(project_dir):
+
+
+
+
+
+
+
+if __name__ == '__main__':
+    main(sys.argv)

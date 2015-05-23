@@ -11,7 +11,7 @@ set history=700
 
 " Enable filetype plugins
 filetype plugin on
-filetype indent on
+"filetype indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -102,7 +102,7 @@ set modelines=5
 " SECTION Colors and Fonts
 
 " Enable syntax highlighting
-syntax enable
+syntax on
 
 "colorscheme desert
 "set background=dark
@@ -207,7 +207,7 @@ endif
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
 set nowb
-"set noswapfile
+set noswapfile
 
 
 
@@ -228,8 +228,8 @@ set tabstop=2
 "set lbr
 "set tw=500
 
-"set ai "Auto indent
-"set si "Smart indent
+set ai "Auto indent
+set si "Smart indent
 "set wrap "Wrap lines
 set nowrap
 
@@ -369,7 +369,7 @@ noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 map <leader>q :e ~/buffer<cr>
 
 " Toggle paste mode on and off
-set paste
+"set paste
 map <leader>pp :setlocal paste!<cr>
 set pastetoggle=<F4>
 
@@ -468,8 +468,7 @@ endfunction
 " SECTION PATHOGEN
 
 call pathogen#infect()
-syntax on
-filetype plugin indent on
+"filetype plugin indent on
 
 let g:vim_markdown_folding_disabled=1
 

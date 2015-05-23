@@ -19,3 +19,6 @@
 [submodule "vim/.vim/bundle/supertab"]
 	path = vim/.vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
+[submodule "vim/.vim/bundle/vim-json"]
+	path = vim/.vim/bundle/vim-json
+	url = https://github.com/elzr/vim-json.git
