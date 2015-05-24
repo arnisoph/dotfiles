@@ -107,7 +107,7 @@ syntax on
 "colorscheme desert
 "set background=dark
 
-" Set utf8 as standard encoding and en_US as the standard language
+" Set utf8 as standard encoding
 set encoding=utf8
 
 " Use Unix as the standard file type
@@ -207,7 +207,7 @@ endif
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
 set nowb
-set noswapfile
+"set noswapfile
 
 
 
@@ -582,3 +582,10 @@ let g:NERDTreeWinSize = 40
 "" For perlomni.vim setting.
 "" https://github.com/c9s/perlomni.vim
 "let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+
+
+" ##############################
+" SECTION SUPERTAB
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
