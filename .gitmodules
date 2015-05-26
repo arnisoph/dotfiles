@@ -22,3 +22,6 @@
 [submodule "vim/.vim/bundle/vim-json"]
 	path = vim/.vim/bundle/vim-json
 	url = https://github.com/elzr/vim-json.git
+[submodule "vim/.vim/bundle/salt-vim"]
+	path = vim/.vim/bundle/salt-vim
+	url = https://github.com/saltstack/salt-vim.git
