@@ -347,6 +347,7 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 " ##############################
 " SECTION Spell checking
+set spelllang=en_us
 
 " Pressing ,ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
