@@ -1,0 +1,58 @@
+#!/bin/bash
+# Stolen from <https://github.com/endyman/zshrc/blob/master/.zshrc> and modified to my needs
+
+rc=0
+bold=$(tput bold)
+normal=$(tput sgr0)
+
+if [[ -z "$1" ]]; then
+  file='.'
+else
+  file="$1"
+fi
+
+n=0
+for f in $(find ${file} -name \*.pp); do
+  out=$(puppet parser validate ${f} 2>&1)
+  if [[ $? != 0 ]]; then
+    echo -e "${bold}${f}${normal}:\n${out}"
+    rc=1
+  fi
+  n=$((n+1))
+
+  puppet-lint \
+    --no-80chars-check \
+    --no-class_inherits_from_params_class-check \
+    --no-documentation-check \
+    --with-filename \
+    --no-double_quoted_strings-check \
+    ${f} || rc=1
+done
+[[ $n -ne 0 ]] && echo "Checked ${n} Puppet files.."
+n=0
+
+
+for f in $(find ${file} -name \*.erb); do
+  out=$(erb -x -T '-' ${f} | ruby -c 2>&1)
+  if [[ $? != 0 ]]; then
+    echo -e "${bold}${f}${normal}:\n${out}"
+    rc=1
+  fi
+  n=$((n+1))
+done
+[[ $n -ne 0 ]] && echo "Checked ${n} ERB files.."
+n=0
+
+
+for f in $(find ${file} -name \*.yaml); do
+  out=$(ruby -e "require 'yaml'; YAML.load_file('${f}')" 2>&1)
+  if [[ $? != 0 ]]; then
+    echo -e "${bold}${f}${normal}:\n${out}"
+    rc=1
+  fi
+  n=$((n+1))
+done
+[[ $n -ne 0 ]] && echo "Checked ${n} YAML files.."
+n=0
+
+exit $rc

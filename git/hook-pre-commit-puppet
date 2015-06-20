@@ -1,0 +1,29 @@
+#!/bin/bash
+# pre-commit git hook to check the validity of a puppet manifest
+#
+# Install/ Symlink to /path/to/repo/.git/hooks/pre-commit
+#
+# Old versions:
+#  * http://techblog.roethof.net/puppet/a-puppet-git-pre-commit-hook-is-always-easy-to-have/
+#  * https://github.com/mattiasgeniar/puppet-pre-commit-hook
+#
+# Authors:
+#  Ronny Roethof
+#  Mattias Geniar <m@ttias.be>
+#  Rob Nelson <rnelson0@gmail.com>
+#  Arnold Bechtoldt <mail@arnoldbechtoldt.com>
+
+for file in $(git diff --name-only --cached | grep -E '\.(pp|erb|yaml)')
+do
+  # Only check new/modified files that end in *.pp extension
+  if [[ -f $file ]]; then
+    vfp ${file} || abort_commit=1
+  fi
+done
+
+if [[ -n "$GIT_HOOK_IGNORE_SYNTAX_ERRORS" ]]; then
+  echo "Ignoring git syntax errors (\$GIT_HOOK_IGNORE_SYNTAX_ERRORS is not empty).."
+elif [[ $abort_commit -eq 1 ]]; then
+  echo "FATAL: Syntax is bad. See above errors. Abort commit.."
+  exit 1
+fi

@@ -1,13 +1,7 @@
 # GENERAL
+[[ -e $HOME/.shell_common ]] && source $HOME/.shell_common
 _os=$(uname)
-GREP_OPTIONS='--color=auto -nI'
-if [[ $_os == Darwin ]]; then
-  LS_OPTIONS='-lhFs'
-else
-  LS_OPTIONS='--color=always -lhFs --time-style=long-iso'
-fi
 
-export EDITOR="vim"
 if [[ -e /usr/local/share/oh-my-zsh ]]; then
   export ZSH=/usr/local/share/oh-my-zsh
 elif [[ -e $HOME/Documents/dev/oh-my-zsh ]]; then
@@ -86,51 +80,7 @@ zstyle ':completion:*' accept-exact false
 _comp_options+=(globdots)
 
 # ALIASES
-alias ..='cd ../'
-alias ...='cd ../../'
-
-alias atc_uptodate='apt-get update && apt-get upgrade'
-
-alias grep="grep -E ${GREP_OPTIONS}"
-
-alias j='jobs -l'
-
-alias l="ls -a ${LS_OPTIONS}"
-alias la="ls -A ${LS_OPTIONS}"
-alias ll="ls ${LS_OPTIONS}"
-alias lhistory='fc -lfDE -1000'
-
-alias mtr_dns='mtr --report --report-wide'
-alias mtr_nodns='mtr --report --report-wide --no-dns'
-
-alias salt='time salt -v'
-alias sudo='sudo ' # Make alias lookup
-alias s='sudo ' # Make alias lookup
-
-alias ta='tail -f'
-alias tree='tree -aFC --charset=ascii'
-
 alias zshrc='vim ~/.zshrc'
-
-if [[ $_os != Darwin ]]; then
-  alias chgrp='chgrp --preserve-root'
-  alias chmod='chmod --preserve-root'
-  alias chown='chown --preserve-root'
-  alias cp='cp -i'
-  alias diff="colordiff -u"
-  alias fwrules='iptables -nvL --line-numbers'
-  alias fw6rules='ip6tables -nvL --line-numbers'
-  alias ls="ls --color=tty"
-  alias mv='mv -i'
-  alias ports='netstat -tulpena'
-  alias rm='rm -i'
-else
-  alias cp='cp'
-  alias mv='mv'
-  alias rm='rm'
-  alias ports='netstat tulpena'
-fi
-
 
 # MISC
 l8security() {
@@ -142,48 +92,6 @@ l8security() {
     echo -e "\nExecuting ${command}.."
     zsh <<< "${command}" &!
   fi
-}
-
-halt() {
-  l8security "/sbin/shutdown -hf +1"
-}
-
-reboot() {
-  l8security "/sbin/shutdown -rf +1"
-}
-
-vfp() {
-  # Stolen from <https://github.com/endyman/zshrc/blob/master/.zshrc>
-
-  if [[ -z "$1" ]]; then
-    dir='.'
-  else
-    dir="$1"
-  fi
-
-  n=0
-  for f in $(find ${dir} -name \*.pp); do
-    out=$(puppet parser validate ${f})
-    [[ $? != 0 ]] && echo -n "${f}: ${out}"
-    n=$((n+1))
-  done
-  echo "Checked ${n} Puppet files.."
-  n=0
-
-  puppet-lint \
-    --no-80chars-check \
-    --no-class_inherits_from_params_class-check \
-    --no-documentation-check \
-    --with-filename \
-    --no-double_quoted_strings-check \
-    ${dir} && \
-
-  for f in $(find ${dir} -name \*.erb); do
-    out=$(erb -x -T '-' ${f} | ruby -c)
-    [[ $? != 0 ]] && echo -n "${f}: ${out}"
-    n=$((n+1))
-  done
-  echo "Checked ${n} ERB files.."
 }
 
 preexec() {
@@ -198,16 +106,6 @@ precmd() {
     typeset -gi CALCTIME=0
 }
 
-checksum() {
-  sha256sum $@
-}
-
-#TODO:
-#export PATH="/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-export LC_ALL=en_US.UTF-8
-export LANG=$LC_ALL
 
 [[ -e $HOME/.zsh_local ]] && source $HOME/.zsh_local
 [[ -e $HOME/.zsh_aliases ]] && source $HOME/.zsh_aliases

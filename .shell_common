@@ -1,0 +1,78 @@
+# This file contains shell instructions/ aliases/ functions/ etc. that should work for most shells
+
+# ALIASES
+alias ..='cd ../'
+alias ...='cd ../../'
+
+alias atc_uptodate='apt-get update && apt-get upgrade'
+
+alias grep="grep -E ${GREP_OPTIONS}"
+
+alias j='jobs -l'
+
+alias l="ls -a ${LS_OPTIONS}"
+alias la="ls -A ${LS_OPTIONS}"
+alias ll="ls ${LS_OPTIONS}"
+alias lhistory='fc -lfDE -1000'
+
+alias mtr_dns='mtr --report --report-wide'
+alias mtr_nodns='mtr --report --report-wide --no-dns'
+
+alias salt='time salt -v'
+alias sudo='sudo ' # Make alias lookup
+alias s='sudo ' # Make alias lookup
+
+alias ta='tail -f'
+alias tree='tree -aFC --charset=ascii'
+
+if [[ $_os != Darwin ]]; then
+  alias chgrp='chgrp --preserve-root'
+  alias chmod='chmod --preserve-root'
+  alias chown='chown --preserve-root'
+  alias cp='cp -i'
+  alias diff="colordiff -u"
+  alias fwrules='iptables -nvL --line-numbers'
+  alias fw6rules='ip6tables -nvL --line-numbers'
+  alias ls="ls --color=tty"
+  alias mv='mv -i'
+  alias ports='netstat -tulpena'
+  alias rm='rm -i'
+else
+  alias cp='cp'
+  alias mv='mv'
+  alias rm='rm'
+  alias ports='netstat tulpena'
+fi
+
+
+# MISC
+
+halt() {
+  l8security "/sbin/shutdown -hf +1"
+}
+
+reboot() {
+  l8security "/sbin/shutdown -rf +1"
+}
+
+checksum() {
+  sha256sum $@
+}
+
+# VARIABLES
+#TODO:
+#export PATH="/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+# export MANPATH="/usr/local/man:$MANPATH"
+export PATH="${PATH}:${HOME}/.local_tools/"
+
+export LC_ALL=en_US.UTF-8
+export LANG=$LC_ALL
+
+export EDITOR="vim"
+GREP_OPTIONS='--color=auto -nI'
+if [[ $_os == Darwin ]]; then
+  LS_OPTIONS='-lhFs'
+else
+  LS_OPTIONS='--color=always -lhFs --time-style=long-iso'
+fi
+
