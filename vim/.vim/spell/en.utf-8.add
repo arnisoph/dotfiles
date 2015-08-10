@@ -40,3 +40,16 @@ CentOS
 RHEL
 hotfix
 PRs
+repo
+CMDB
+Elasticsearch
+Kibana
+Vagrantfile
+PXE
+TFTP
+wget
+PXElinux
+vSphere
+bootloaders
+chainloading
+lifecycle
