@@ -1,5 +1,26 @@
 # This file contains shell instructions/ aliases/ functions/ etc. that should work for most shells
 
+_os=$(uname)
+
+# VARIABLES
+#TODO:
+#export PATH="/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+# export MANPATH="/usr/local/man:$MANPATH"
+export PATH="${PATH}:${HOME}/.local_tools/"
+
+export LC_ALL=en_US.UTF-8
+export LANG=$LC_ALL
+
+export EDITOR="vim"
+GREP_OPTIONS='--color=auto -nI'
+
+if [[ $_os == Darwin || $_os == "*BSD" ]]; then
+  LS_OPTIONS='-lhFs'
+else
+  LS_OPTIONS='--color=always -lhFs --time-style=long-iso'
+fi
+
+
 # ALIASES
 alias ..='cd ../'
 alias ...='cd ../../'
@@ -25,7 +46,12 @@ alias s='sudo ' # Make alias lookup
 alias ta='tail -f'
 alias tree='tree -aFC --charset=ascii'
 
-if [[ $_os != Darwin ]]; then
+if [[ $_os == Darwin || $_os == "*BSD" ]]; then
+  alias cp='cp'
+  alias mv='mv'
+  alias rm='rm'
+  alias ports='netstat tulpena'
+else
   alias chgrp='chgrp --preserve-root'
   alias chmod='chmod --preserve-root'
   alias chown='chown --preserve-root'
@@ -37,16 +63,10 @@ if [[ $_os != Darwin ]]; then
   alias mv='mv -i'
   alias ports='netstat -tulpena'
   alias rm='rm -i'
-else
-  alias cp='cp'
-  alias mv='mv'
-  alias rm='rm'
-  alias ports='netstat tulpena'
 fi
 
 
 # MISC
-
 halt() {
   l8security "/sbin/shutdown -hf +1"
 }
@@ -58,21 +78,3 @@ reboot() {
 checksum() {
   sha256sum $@
 }
-
-# VARIABLES
-#TODO:
-#export PATH="/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
-# export MANPATH="/usr/local/man:$MANPATH"
-export PATH="${PATH}:${HOME}/.local_tools/"
-
-export LC_ALL=en_US.UTF-8
-export LANG=$LC_ALL
-
-export EDITOR="vim"
-GREP_OPTIONS='--color=auto -nI'
-if [[ $_os == Darwin ]]; then
-  LS_OPTIONS='-lhFs'
-else
-  LS_OPTIONS='--color=always -lhFs --time-style=long-iso'
-fi
-
