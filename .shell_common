@@ -14,7 +14,7 @@ export LANG=$LC_ALL
 export EDITOR="vim"
 GREP_OPTIONS='--color=auto -nI'
 
-if [[ $_os == Darwin || $_os == "*BSD" ]]; then
+if [[ $_os == Darwin || $_os =~ .*BSD ]]; then
   LS_OPTIONS='-lhFs'
 else
   LS_OPTIONS='--color=always -lhFs --time-style=long-iso'
@@ -46,7 +46,7 @@ alias s='sudo ' # Make alias lookup
 alias ta='tail -f'
 alias tree='tree -aFC --charset=ascii'
 
-if [[ $_os == Darwin || $_os == "*BSD" ]]; then
+if [[ $_os == Darwin || $_os =~ .*BSD ]]; then
   alias cp='cp'
   alias mv='mv'
   alias rm='rm'
