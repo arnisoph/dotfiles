@@ -1,5 +1,4 @@
 # GENERAL
-[[ -e $HOME/.shell_common ]] && source $HOME/.shell_common
 _os=$(uname)
 
 if [[ -e /usr/local/share/oh-my-zsh ]]; then
@@ -107,6 +106,7 @@ precmd() {
 }
 
 
+[[ -e $HOME/.shell_common ]] && source $HOME/.shell_common
 [[ -e $HOME/.zsh_local ]] && source $HOME/.zsh_local
 [[ -e $HOME/.zsh_aliases ]] && source $HOME/.zsh_aliases
 
