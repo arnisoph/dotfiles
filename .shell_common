@@ -3,15 +3,13 @@
 _os=$(uname)
 
 # VARIABLES
-#TODO:
-#export PATH="/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
-# export MANPATH="/usr/local/man:$MANPATH"
-export PATH="${PATH}:${HOME}/.local_tools/"
+export MANPATH="/usr/local/man:${MANPATH}"
+export PATH="${PATH}:/usr/local/bin:${HOME}/.local_tools/"
 
 export LC_ALL=en_US.UTF-8
 export LANG=$LC_ALL
 
-export EDITOR="vim"
+export EDITOR='vim'
 GREP_OPTIONS='--color=auto -nI'
 
 if [[ $_os == Darwin || $_os =~ .*BSD ]]; then
