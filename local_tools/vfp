@@ -32,6 +32,18 @@ done
 n=0
 
 
+for f in $(find ${file} -name \*.rb); do
+  out=$(ruby -c ${f} 2>&1)
+  if [[ $? != 0 ]]; then
+    echo -e "${bold}${f}${normal}:\n${out}"
+    rc=1
+  fi
+  n=$((n+1))
+done
+[[ $n -ne 0 ]] && echo "Checked ${n} RB files.."
+n=0
+
+
 for f in $(find ${file} -name \*.erb); do
   out=$(erb -x -T '-' ${f} | ruby -c 2>&1)
   if [[ $? != 0 ]]; then
