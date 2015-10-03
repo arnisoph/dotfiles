@@ -43,7 +43,7 @@ DISABLE_AUTO_UPDATE="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=$HOME/.ohmyzsh/
+ZSH_CUSTOM=${HOME}/.ohmyzsh/
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -51,7 +51,7 @@ ZSH_CUSTOM=$HOME/.ohmyzsh/
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git sudo colored-man)
 
-source $ZSH/oh-my-zsh.sh
+source ${ZSH}/oh-my-zsh.sh
 
 # ZSH SETTINGS
 set -k
@@ -80,6 +80,12 @@ _comp_options+=(globdots)
 
 # ALIASES
 alias zshrc='vim ~/.zshrc'
+
+# NUMBLOCK/KEYPAD FIXES FROM http://superuser.com/questions/742171/zsh-z-shell-numpad-numlock-doesnt-work
+if [[ -n "$(which bindkey)" ]]; then
+  # 0 . Enter
+  bindkey -s "^[OM" "^M"
+fi
 
 # MISC
 l8security() {
