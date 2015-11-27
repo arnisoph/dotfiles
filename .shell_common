@@ -24,6 +24,8 @@ alias ...='cd ../../'
 
 alias atc_uptodate='apt-get update && apt-get upgrade'
 
+alias diff="colordiff -u"
+
 alias gdc='git diff --cached'
 alias grep="grep -E --color=auto -nI --exclude-dir={.bzr,.cvs,.git,.hg,.svn}"
 
@@ -54,7 +56,6 @@ else
   alias chmod='chmod --preserve-root'
   alias chown='chown --preserve-root'
   alias cp='cp -i'
-  alias diff="colordiff -u"
   alias fwrules='iptables -nvL --line-numbers'
   alias fw6rules='ip6tables -nvL --line-numbers'
   alias ls="ls --color=tty"
