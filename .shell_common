@@ -27,6 +27,7 @@ alias atc_uptodate='apt-get update && apt-get upgrade'
 alias diff="colordiff -u"
 alias dck="docker"
 alias dcp="docker-compose"
+alias dcm="docker-machine"
 
 alias gdc='git diff --cached'
 alias grep="grep -E --color=auto -nI --exclude-dir={.bzr,.cvs,.git,.hg,.svn}"
