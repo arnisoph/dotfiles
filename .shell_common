@@ -52,6 +52,8 @@ alias s='sudo ' # Make alias lookup
 alias ta='tail -f'
 alias tree='tree -aFC --charset=ascii'
 
+alias vim-vanilla="vim -u NONE"
+
 if [[ $_os == Darwin || $_os =~ .*BSD ]]; then
   alias cp='cp'
   alias mv='mv'
