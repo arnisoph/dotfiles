@@ -58,7 +58,6 @@ set -k
 SAVEHIST=1000
 HISTSIZE=1000
 HISTFILE=~/.history
-export HISTTIMEFORMAT='%F %T '
 export HISTTIMEFORMAT="%Y-%m-%d% H:%M"
 export HISTCONTROL="erasedups:ignoreboth"
 
@@ -110,7 +109,6 @@ precmd() {
     fi
     typeset -gi CALCTIME=0
 }
-
 
 [[ -e $HOME/.shell_common ]] && source $HOME/.shell_common
 [[ -e $HOME/.zsh_local ]] && source $HOME/.zsh_local

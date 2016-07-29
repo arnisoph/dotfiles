@@ -1,11 +1,7 @@
-export PATH="/opt/local/bin/:${PATH}"
-source /etc/profile
-source ~/git-completion.sh
+# GENERAL
+_os=$(uname)
 
-case $- in
-  *i*) ;;
-  *) return;;
-esac
+# VARIABLES
 
 HISTCONTROL=ignoreboth
 HISTSIZE=1000
@@ -29,31 +25,17 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-  PS1='\[\033[01;32m\]\u\[\033[01;33m\]@\[\033[01;36m\]\h \[\033[01;33m\]\w \[\033[01;35m\]\$ \[\033[00m\]'
+  export PS1='\[\033[01;32m\]\u\[\033[01;33m\]@\[\033[01;36m\]\h \[\033[01;33m\]\w \[\033[01;35m\]\$ \[\033[00m\]'
 else
-  PS1='\u@\h \w \$'
+  export PS1='\u@\h \w \$'
 fi
-
-  if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
-      . /opt/local/etc/profile.d/bash_completion.sh
-  fi
 
 unset color_prompt force_color_prompt
 
-export PS1
-export EDITOR="vim"
-export LESS_TERMCAP_mb=$'\E[01;31m'
-export LESS_TERMCAP_md=$'\E[01;31m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;44;33m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
+# MISC
 
-export LSCOLORS=dxfxcxdxbxegedabagacad
+[[ -e $HOME/.shell_common ]] && source $HOME/.shell_common
+[[ -e $HOME/.bash_local ]] && source $HOME/.bash_local
+[[ -e $HOME/.bash_aliases ]] && source $HOME/.bash_aliases
 
-export LANG=en_US.utf8
-
-if [ -f ~/.bash_aliases ]; then
- . ~/.bash_aliases
-fi
+true

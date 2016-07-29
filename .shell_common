@@ -4,15 +4,33 @@ _os=$(uname)
 
 # VARIABLES
 export MANPATH="/usr/local/man:${MANPATH}"
-export PATH="${PATH}:/usr/local/bin:${HOME}/.local_tools/"
 
-export LC_ALL=en_US.UTF-8
+export PATH="\
+${HOME}/bin/:\
+/usr/local/bin:\
+/usr/local/sbin:\
+${PATH}:\
+/usr/local/bin/python:\
+/opt/local/bin:\
+${HOME}/packer:\
+${HOME}/terraform:\
+${HOME}/.local_tools/:\
+"
+
 export LANG=$LC_ALL
+export LC_ALL=en_US.UTF-8
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
 
 export EDITOR='vim'
 
 if [[ $_os == Darwin || $_os =~ .*BSD ]]; then
-  LS_OPTIONS='-lhFs'
+  LS_OPTIONS='-G -lhFs'
 else
   LS_OPTIONS='--color=always -lhFs --time-style=long-iso'
 fi
