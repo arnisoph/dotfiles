@@ -58,8 +58,7 @@ alias j='jobs -l'
 
 alias kcl='kubectl'
 
-alias l="ls -a ${LS_OPTIONS}"
-alias la="ls -A ${LS_OPTIONS}"
+alias l="ls -A ${LS_OPTIONS}"
 alias ll="ls ${LS_OPTIONS}"
 alias lhistory='fc -lfDE -1000'
 
