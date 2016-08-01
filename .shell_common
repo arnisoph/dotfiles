@@ -56,6 +56,8 @@ alias grep="grep -E --color=auto -nI --exclude-dir={.bzr,.cvs,.git,.hg,.svn}"
 
 alias j='jobs -l'
 
+alias kcl='kubectl'
+
 alias l="ls -a ${LS_OPTIONS}"
 alias la="ls -A ${LS_OPTIONS}"
 alias ll="ls ${LS_OPTIONS}"
