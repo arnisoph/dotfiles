@@ -58,8 +58,8 @@ alias j='jobs -l'
 
 alias kcl='kubectl'
 
-alias l="ls -A ${LS_OPTIONS}"
-alias ll="ls ${LS_OPTIONS}"
+alias l="ls ${LS_OPTIONS}"
+alias ll="ls -A ${LS_OPTIONS}"
 alias lhistory='fc -lfDE -1000'
 
 alias mtr_dns='mtr --report --report-wide'
