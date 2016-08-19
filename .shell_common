@@ -3,6 +3,10 @@
 _os=$(uname)
 
 # VARIABLES
+export EDITOR='vim'
+
+export GOPATH=${HOME}/Documents/dev/GOPATH
+
 export MANPATH="/usr/local/man:${MANPATH}"
 
 export PATH="\
@@ -27,7 +31,6 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-export EDITOR='vim'
 
 if [[ $_os == Darwin || $_os =~ .*BSD ]]; then
   LS_OPTIONS='-G -lhFs'
