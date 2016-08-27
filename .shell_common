@@ -6,6 +6,7 @@ _os=$(uname)
 export EDITOR='vim'
 
 export GOPATH=${HOME}/Documents/dev/GOPATH
+export GOBIN=${GOPATH}/bin
 
 export MANPATH="/usr/local/man:${MANPATH}"
 
