@@ -57,6 +57,7 @@ alias gdc='git diff --cached'
 alias gfa='git fetch origin --all --prune'
 alias ggg='git pull origin $(current_branch)'
 alias ggp='git push origin $(current_branch)'
+alias gmc='git merge --no-ff'
 alias grep="grep -E --color=auto -nI --exclude-dir={.bzr,.cvs,.git,.hg,.svn}"
 
 alias j='jobs -l'
