@@ -44,6 +44,8 @@ fi
 # ALIASES
 alias ..='cd ../'
 alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
 
 alias atc_uptodate='apt-get update && apt-get upgrade'
 
