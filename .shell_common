@@ -63,6 +63,10 @@ alias glogp='git log --graph --abbrev-commit --decorate --all --format=format:"%
 alias gmc='git merge --no-ff'
 alias grep="grep -E --color=auto -nI --exclude-dir={.bzr,.cvs,.git,.hg,.svn}"
 
+if [[ $ITERM_PROFILE == "Beamer" ]]; then
+  alias htop="htop --no-color"
+fi
+
 alias j='jobs -l'
 
 alias kcl='kubectl'

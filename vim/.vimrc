@@ -1,5 +1,5 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Old version: https://github.com/amix/vimrc
+" (very) old version: https://github.com/amix/vimrc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -104,9 +104,6 @@ set modelines=5
 " Enable syntax highlighting
 syntax on
 
-"colorscheme desert
-"set background=dark
-
 " Set utf8 as standard encoding
 set encoding=utf8
 
@@ -136,9 +133,6 @@ fun! LoadColourScheme(schemes)
     endwhile
 endfun
 
-if has('gui')
-   call LoadColourScheme("inkpot:night:rainbow_night:darkblue:elflord")
-else
    if &t_Co == 88 || &t_Co == 256
        call LoadColourScheme("inkpot:desert256:darkblack:darkblue:elflord")
     else
@@ -197,7 +191,6 @@ else
 "            Normal:  Coloring the text with a default color.
           hi normal       term=NONE
     endif
-endif
 
 
 
@@ -379,7 +372,7 @@ if (($TERM == "rxvt-unicode") || ($TERM =~ "xterm") || ($TERM =~ "screen")) && (
     set termencoding=utf-8
 endif
 
-"     compatible:  Let Vim behave like Vi?  Hell, no!
+" compatible:  Let Vim behave like Vi?  Hell, no!
 set nocompatible
 
 set viminfo='1000,f1,:1000,/1000
@@ -397,9 +390,6 @@ set showmode
 set scrolloff=4
 set sidescrolloff=2
 set noicon
-
-"set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
-"set list
 
 
 
@@ -592,3 +582,20 @@ let g:syntastic_python_checkers = ['flake8']
 " SECTION SUPERTAB
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
+
+
+" ##############################
+" FINAL SETTINGS (may override something)
+
+if $ITERM_PROFILE == "Beamer"
+  colorscheme blackwhite
+  syntax off
+  set nolist
+  set nohlsearch
+  set number
+  set t_Co=0
+  hi Normal                          ctermfg=black ctermbg=white
+  hi Whitespace           cterm=NONE ctermfg=NONE  ctermbg=NONE
+  hi LineNr     term=NONE cterm=NONE ctermfg=NONE  ctermbg=NONE
+  hi NonText    term=NONE cterm=NONE ctermfg=NONE  ctermbg=NONE
+endif
