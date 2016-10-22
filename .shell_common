@@ -59,6 +59,7 @@ alias gdc='git diff --cached'
 alias gfa='git fetch origin --all --prune'
 alias ggg='git pull origin $(current_branch)'
 alias ggp='git push origin $(current_branch)'
+alias gst='git status -s'
 alias glogp='git log --graph --abbrev-commit --decorate --all --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)"'
 alias gmc='git merge --no-ff'
 alias grep="grep -E --color=auto -nI --exclude-dir={.bzr,.cvs,.git,.hg,.svn}"
