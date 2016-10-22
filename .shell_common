@@ -64,7 +64,7 @@ alias gmc='git merge --no-ff'
 alias grep="grep -E --color=auto -nI --exclude-dir={.bzr,.cvs,.git,.hg,.svn}"
 
 if [[ $ITERM_PROFILE == "Beamer" ]]; then
-  alias htop="htop --no-color"
+  alias htop="HTOPRC=/dev/null htop --no-color"
 fi
 
 alias j='jobs -l'
