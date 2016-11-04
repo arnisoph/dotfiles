@@ -227,7 +227,7 @@ set si "Smart indent
 set nowrap
 
 " syntax-highlighting is slow for long lines
-set synmaxcol=300
+"set synmaxcol=300
 
 
 
