@@ -32145,18 +32145,10 @@
 	<true/>
 	<key>MaxVertically</key>
 	<false/>
-	<key>NSColorPanelMode</key>
-	<string>5</string>
-	<key>NSFontPanelAttributes</key>
-	<string>1, 1</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Downloads/mbadolato-iTerm2-Color-Schemes-18c5aff/schemes</string>
+	<string>~</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 459}</string>
-	<key>NSNavPanelExpandedSizeForSaveMode</key>
-	<string>{712, 488}</string>
-	<key>NSNavPanelExpandedStateForSaveMode</key>
-	<true/>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -32176,7 +32168,7 @@
 		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
 		hAErATGG
 		</data>
-		<string>307</string>
+		<string>322</string>
 	</array>
 	<key>NSTableView Hidden Columns KeyBingingTable</key>
 	<array/>
@@ -32187,24 +32179,16 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
-	<key>NSWindow Frame NSFontPanel</key>
-	<string>2049 110 445 550 0 0 2560 1440 </string>
-	<key>NSWindow Frame Preferences</key>
-	<string>-1024 957 606 456 -1280 640 1280 777 </string>
+	<key>NSWindow Frame SharedPreferences</key>
+	<string>269 136 796 473 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 2559 1417 0 0 2560 1417 </string>
-	<key>NSWindow Frame iTerm Window 1</key>
-	<string>792 472 872 202 0 0 2560 1417 </string>
-	<key>NSWindow Frame iTerm Window 2</key>
-	<string>1100 988 585 452 0 0 2560 1440 </string>
-	<key>NSWindow Frame iTerm Window 3</key>
-	<string>793 674 872 377 0 0 2560 1417 </string>
-	<key>NSWindow Frame iTerm Window 4</key>
-	<string>202 31 879 477 0 0 1280 777 </string>
-	<key>NSWindow Frame iTerm Window 5</key>
-	<string>-206 807 1676 1013 -205 800 1680 1027 </string>
+	<string>4 21 1676 1006 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_467C3646-FF57-4491-89A1-F8F093C4F350</key>
 	<true/>
+	<key>NeverWarnAboutShortLivedSessions_74BBA3AB-15AC-4584-9016-1BEE6AF58DFC</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_74BBA3AB-15AC-4584-9016-1BEE6AF58DFC_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -34112,20 +34096,10 @@
 			<string></string>
 		</dict>
 	</array>
-	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
-	<true/>
-	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
-	<integer>0</integer>
 	<key>NoSyncInstallationId</key>
-	<string>98F83BC8-97EC-4C9E-B7AA-E574185D17DF</string>
-	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
-	<true/>
-	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
-	<integer>1</integer>
-	<key>NoSyncPermissionToShowTip</key>
-	<false/>
+	<string>48241CF4-7447-4A82-A6BC-851BA8CC5B9E</string>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>490547409.887003</real>
+	<real>500645460.085428</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -34176,7 +34150,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/arnoldbechtoldt/Documents/dev/github/dotfiles/iterm/settings</string>
+	<string>/Users/ab/.iterm-settings</string>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -34194,11 +34168,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=93</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=6</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
-	<key>SULastCheckTime</key>
-	<date>2016-07-18T15:09:57Z</date>
+	<key>SUSendProfileInfo</key>
+	<false/>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -34250,7 +34224,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.4</string>
+	<string>3.0.9</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
