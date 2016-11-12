@@ -32443,7 +32443,7 @@
 			<key>Badge Text</key>
 			<string></string>
 			<key>Blend</key>
-			<real>0.19466647826708283</real>
+			<real>0.32267003395618538</real>
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
@@ -33122,7 +33122,7 @@
 			<key>Terminal Type</key>
 			<string>xterm</string>
 			<key>Transparency</key>
-			<real>0.0</real>
+			<real>0.11751340606508875</real>
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
@@ -34073,7 +34073,7 @@
 			<key>Terminal Type</key>
 			<string>xterm</string>
 			<key>Transparency</key>
-			<real>0.168545201420784</real>
+			<real>0.11751340606508875</real>
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
