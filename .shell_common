@@ -84,6 +84,7 @@ alias sudo='sudo ' # Make alias lookup
 alias s='sudo ' # Make alias lookup
 
 alias ta='tail -f'
+alias tf='terraform'
 alias tree='tree -aFC --charset=ascii'
 
 alias vim-vanilla="vim -u NONE"
@@ -119,3 +120,8 @@ reboot() {
 checksum() {
   sha256sum $@
 }
+
+[[ -e /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
+
+# The End.
+true
