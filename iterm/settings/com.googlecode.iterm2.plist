@@ -32180,7 +32180,7 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>219 401 796 473 0 0 1680 1050 </string>
+	<string>725 402 796 473 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 348 570 452 0 0 1280 800 </string>
 	<key>NeverWarnAboutShortLivedSessions_467C3646-FF57-4491-89A1-F8F093C4F350</key>
@@ -32974,11 +32974,11 @@
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>0</integer>
+			<integer>10000</integer>
 			<key>Scrollback With Status Bar</key>
 			<false/>
 			<key>Scrollback in Alternate Screen</key>
-			<true/>
+			<false/>
 			<key>Selected Text Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -33126,7 +33126,7 @@
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
-			<true/>
+			<false/>
 			<key>Use Bold Font</key>
 			<true/>
 			<key>Use Bright Bold</key>
@@ -33925,11 +33925,11 @@
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>0</integer>
+			<integer>10000</integer>
 			<key>Scrollback With Status Bar</key>
 			<false/>
 			<key>Scrollback in Alternate Screen</key>
-			<true/>
+			<false/>
 			<key>Selected Text Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -34077,7 +34077,7 @@
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
-			<true/>
+			<false/>
 			<key>Use Bold Font</key>
 			<true/>
 			<key>Use Bright Bold</key>
