@@ -32185,6 +32185,10 @@
 	<string>0 348 570 452 0 0 1280 800 </string>
 	<key>NeverWarnAboutShortLivedSessions_467C3646-FF57-4491-89A1-F8F093C4F350</key>
 	<true/>
+	<key>NeverWarnAboutShortLivedSessions_6637D6A1-CE32-4AA8-A14C-7D1F666416B0</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_6637D6A1-CE32-4AA8-A14C-7D1F666416B0_selection</key>
+	<integer>0</integer>
 	<key>NeverWarnAboutShortLivedSessions_74BBA3AB-15AC-4584-9016-1BEE6AF58DFC</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_74BBA3AB-15AC-4584-9016-1BEE6AF58DFC_selection</key>
