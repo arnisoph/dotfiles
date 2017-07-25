@@ -3,6 +3,8 @@
 _os=$(uname)
 
 # VARIABLES
+export AWS_SDK_LOAD_CONFIG=1
+
 export EDITOR='vim'
 
 export GOPATH=${HOME}/Documents/dev/GOPATH
