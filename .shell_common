@@ -25,6 +25,9 @@ ${HOME}/terraform:\
 ${HOME}/.local_tools/:\
 "
 
+pyenv_version=$(pyenv version-name 2>/dev/null)
+[[ $? == 0 && -n ${pyenv_version?} ]] && export PATH="${HOME?}/.pyenv/versions/${pyenv_version?}/bin:${PATH?}"
+
 export LANG=$LC_ALL
 export LC_ALL=en_US.UTF-8
 export LESS_TERMCAP_mb=$'\E[01;31m'
@@ -123,7 +126,7 @@ checksum() {
   sha256sum $@
 }
 
-[[ -e /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
+#[[ -e /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
 
 # The End.
 true
