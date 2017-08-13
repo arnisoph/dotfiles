@@ -75,6 +75,7 @@ fi
 
 alias j='jobs -l'
 
+alias k='kubectl'
 alias kcl='kubectl'
 
 alias l="ls -A ${LS_OPTIONS}"
