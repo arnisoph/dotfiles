@@ -32,6 +32,32 @@ function my_git() {
   echo " - $(parse_git_dirty)%F{yellow}${ref#refs/heads/}%f"
 }
 
+function my_kubectl_context() {
+  which kubectl &>/dev/null
+  rc=$?
+
+  if [[ $rc == 0 ]]; then
+    zmodload zsh/regex
+
+    current_context="$(kubectl config current-context)"
+    [[ -z ${current_context} || ${current_context} == "null" ]] && return
+
+    current_context=${current_context%.*}
+    current_context=${current_context%.*}
+
+    if [[ ${current_context} -regex-match ".*\.test\..*" ]]; then
+      current_context=${current_context/test/%U%F{green}test%f%u}
+    elif [[ ${current_context} -regex-match ".*\.int\..*" ]]; then
+      current_context=${current_context/int/%U%F{yellow}int%f%u}
+    elif [[ ${current_context} -regex-match ".*\.prod\..*" ]]; then
+      current_context=${current_context/prod/%U%F{red}prod%f%u}
+    else
+      current_context="%F{cyan}${current_context}%f"
+    fi
+    echo " - %B${current_context}%b (k8s)"
+  fi
+}
+
 function my_time() {
   echo ' %F{green}%D{%H:%M:%S}'
 }
@@ -49,7 +75,7 @@ function convertsecs() {
 }
 
 PROMPT=$'
-%F{cyan}┌──[ $(my_uh ${host})$(my_dir)$(cmd_exec_time)$(my_load)${return_code}$(my_jobs)$(my_git)
+%F{cyan}┌──[ $(my_uh ${host})$(my_dir)$(cmd_exec_time)$(my_load)${return_code}$(my_jobs)$(my_git)$(my_kubectl_context)
 %F{cyan}└──[%f '
 
 #RPROMPT='$(my_git)$(my_time)'
