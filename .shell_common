@@ -67,7 +67,7 @@ alias ggp='git push origin $(current_branch)'
 alias gst='git status -s'
 alias glogp='git log --graph --abbrev-commit --decorate --all --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)"'
 alias gmc='git merge --no-ff'
-alias grep="grep -E --color=auto -nI --exclude-dir={.bzr,.cvs,.git,.hg,.svn}"
+alias grep="grep -E --color=auto -I --exclude-dir={.bzr,.cvs,.git,.hg,.svn}"
 
 if [[ $ITERM_PROFILE == "Beamer" ]]; then
   alias htop="HTOPRC=/dev/null htop --no-color"
@@ -82,6 +82,7 @@ alias l="ls -A ${LS_OPTIONS}"
 alias ll="ls ${LS_OPTIONS}"
 alias lhistory='fc -lfDE -1000'
 
+alias m='minikube'
 alias mtr_dns='mtr --report --report-wide'
 alias mtr_nodns='mtr --report --report-wide --no-dns'
 

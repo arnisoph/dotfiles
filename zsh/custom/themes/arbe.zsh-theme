@@ -39,7 +39,7 @@ function my_kubectl_context() {
   if [[ $rc == 0 ]]; then
     zmodload zsh/regex
 
-    current_context="$(kubectl config current-context)"
+    current_context="$(kubectl config current-context 2>/dev/null)"
     [[ -z ${current_context} || ${current_context} == "null" ]] && return
 
     current_context=${current_context%.*}
