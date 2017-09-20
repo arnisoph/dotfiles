@@ -25,6 +25,8 @@ ${HOME}/terraform:\
 ${HOME}/.local_tools/:\
 "
 
+export KUBECONFIG="${KUBECONFIG}:$(find ${HOME}/.kube -type f -name 'config*' -not -name '*.old' | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/:/g')"
+
 pyenv_version=$(pyenv version-name 2>/dev/null)
 [[ $? == 0 && -n ${pyenv_version?} ]] && export PATH="${HOME?}/.pyenv/versions/${pyenv_version?}/bin:${PATH?}"
 
