@@ -116,10 +116,6 @@ highlight Whitespace cterm=underline gui=underline ctermbg=NONE guibg=NONE cterm
 "autocmd ColorScheme * highlight Whitespace gui=underline ctermbg=NONE guibg=NONE ctermfg=yellow guifg=yellow
 match Whitespace /  \+/
 
-"highlight ExtraWhitespace ctermbg=red guibg=red
-"call matchadd('ExtraWhitespace', '/\s\+$/')
-autocmd BufWritePre * :%s/\s\+$//e
-
 fun! LoadColourScheme(schemes)
     let l:schemes = a:schemes . ":"
     while l:schemes != ""
@@ -327,7 +323,7 @@ if has("mac") || has("macunix")
   vmap <D-k> <M-k>
 endif
 
-" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+" Delete trailing whitespace on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
   exe "normal mz"
   %s/\s\+$//ge
@@ -336,6 +332,7 @@ endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
+autocmd BufWritePre * :%s/\s\+$//e
 
 
 " ##############################
