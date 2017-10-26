@@ -32129,6 +32129,8 @@
 	<integer>0</integer>
 	<key>HotkeyCode</key>
 	<integer>0</integer>
+	<key>HotkeyMigratedFromSingleToMulti</key>
+	<true/>
 	<key>HotkeyModifiers</key>
 	<integer>0</integer>
 	<key>IRMemory</key>
@@ -32180,17 +32182,17 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>393 1836 620 392 -577 1050 2560 1440 </string>
+	<string>515 1426 700 622 -135 1050 1920 1200 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
-	<string>134 1189 606 456 -135 1050 1920 1200 </string>
+	<string>220 111 606 456 0 0 1680 1050 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>1699 1474 937 512 777 1050 1920 1200 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>662 348 570 452 0 0 1680 1050 </string>
+	<string>687 1183 570 452 -135 1050 1920 1200 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>143 96 570 452 0 0 1680 1050 </string>
+	<string>459 263 570 452 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>1271 1398 570 452 777 1050 1920 1200 </string>
+	<string>359 1398 570 452 -135 1050 1920 1200 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
 	<string>92 66 570 452 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
@@ -34122,6 +34124,10 @@
 	<true/>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
+	<key>NoSyncSuppressBroadcastInputWarning</key>
+	<true/>
+	<key>NoSyncSuppressBroadcastInputWarning_selection</key>
+	<integer>0</integer>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>500645460.085428</real>
 	<key>OnlyWhenMoreTabs</key>
@@ -34198,11 +34204,9 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-11-25T19:28:22Z</date>
+	<date>2017-09-20T15:43:58Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
-	<key>SUSkippedVersion</key>
-	<string>3.0.12</string>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -34251,10 +34255,12 @@
 	<string>/-+\~_.</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.9</string>
+	<string>3.1.1</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
