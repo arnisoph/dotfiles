@@ -79,6 +79,23 @@ alias j='jobs -l'
 
 alias k='kubectl'
 alias kcl='kubectl'
+# set default namespace in current context
+function kns() {
+  kubectl config set-context $(kubectl config current-context) --namespace=${1}
+}
+# List pods by label
+function kget() {
+  kubectl get pods -l "$@" --all-namespaces
+}
+
+# Get pods with namespace
+function kl() {
+  kubectl get pods -l $@ --all-namespaces -o json | jq -r '.items[].metadata | "\(.name) -n \(.namespace)"'
+}
+# Jump into a pod
+function kex() {
+  kubectl exec -it "$@" sh
+}
 
 alias l="ls -A ${LS_OPTIONS}"
 alias ll="ls ${LS_OPTIONS}"
