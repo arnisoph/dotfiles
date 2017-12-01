@@ -115,6 +115,8 @@ alias tree='tree -aFC --charset=ascii'
 
 alias vim-vanilla="vim -u NONE"
 
+alias xkcdpass="xkcdpass -n 4 -d '-'"
+
 if [[ $_os == Darwin || $_os =~ .*BSD ]]; then
   alias cp='cp'
   alias mv='mv'
