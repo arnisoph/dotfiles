@@ -79,13 +79,30 @@ alias j='jobs -l'
 
 alias k='kubectl'
 alias kcl='kubectl'
-# set default namespace in current context
+
 function kns() {
   kubectl config set-context $(kubectl config current-context) --namespace=${1}
 }
-# List pods by label
 function kget() {
-  kubectl get pods -l "$@" --all-namespaces
+  kubectl get all -l "$@" --all-namespaces
+}
+function kgetsvc() {
+  kubectl get service -l "$@" --all-namespaces
+}
+function kgetp() {
+  kubectl get pod -l "$@" --all-namespaces
+}
+function kgetd() {
+  kubectl get deployment -l "$@" --all-namespaces
+}
+function kgeti() {
+  kubectl get ingress -l "$@" --all-namespaces
+}
+function kgetsec() {
+  kubectl get secret -l "$@" --all-namespaces
+}
+function kgetsa() {
+  kubectl get serviceaccount -l "$@" --all-namespaces
 }
 
 # Get pods with namespace
@@ -107,6 +124,7 @@ alias mtr_nodns='mtr --report --report-wide --no-dns'
 
 alias salt='time salt -v'
 alias sudo='sudo ' # Make alias lookup
+alias sudoedit='vim ' # Make alias lookup
 alias s='sudo ' # Make alias lookup
 
 alias ta='tail -f'
