@@ -39,7 +39,8 @@ function my_kubectl_context() {
   if [[ $rc == 0 ]]; then
     zmodload zsh/regex
 
-    current_context="$(kubectl config current-context 2>/dev/null)"
+    current_context_raw="$(kubectl config current-context 2>/dev/null)"
+    current_context="${current_context_raw}"
     [[ -z ${current_context} || ${current_context} == "null" ]] && return
 
     current_context=${current_context%.*}
@@ -54,7 +55,18 @@ function my_kubectl_context() {
     else
       current_context="%F{cyan}${current_context}%f"
     fi
-    echo " - %B${current_context}%b (k8s)"
+
+    current_username_raw="$(kubectl config view -o jsonpath="{.contexts[?(@.name == '${current_context_raw}')].context.user}" 2>/dev/null)"
+    current_username="%F{yellow}${current_username_raw}%f"
+
+    current_namespace_raw="$(kubectl config view -o jsonpath="{.contexts[?(@.name == '${current_context_raw}')].context.namespace}" 2>/dev/null)"
+    if [[ -z "${current_namespace_raw}" ]]; then
+      current_namespace="%F{red}DEFAULT%f"
+    else
+      current_namespace="%F{yellow}${current_namespace_raw}%f"
+    fi
+
+    echo " - %B${current_username}%b%F{cyan}@%f%B${current_context}%b%F{cyan}:%f%B${current_namespace}%b (k8s)"
   fi
 }
 
