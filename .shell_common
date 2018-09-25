@@ -10,6 +10,10 @@ export EDITOR='vim'
 export GOPATH=${HOME}/Documents/dev/GOPATH
 export GOBIN=${GOPATH}/bin
 
+if [[ -z "${HOSTNAME}" ]]; then
+  export HOSTNAME=$(hostname -s)
+fi
+
 export MANPATH="/usr/local/man:${MANPATH}"
 
 export PATH="\
@@ -26,7 +30,7 @@ ${HOME}/terraform:\
 ${HOME}/.local_tools/:\
 "
 
-export KUBECONFIG="\${KUBECONFIG}:$(find ${HOME}/.kube -type f -name 'config*' -not -name '*.old' | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/:/g')"
+export KUBECONFIG="$(find ${HOME}/.kube -type f -name 'config*' -not -name '*.old' | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/:/g'):${KUBECONFIG}"
 
 pyenv_version=$(pyenv version-name 2>/dev/null)
 [[ $? == 0 && -n ${pyenv_version?} ]] && export PATH="${HOME?}/.pyenv/versions/${pyenv_version?}/bin:${PATH?}"
@@ -115,6 +119,7 @@ function kex() {
   kubectl exec -it "$@" sh
 }
 
+alias less="less -S"
 alias l="ls -A ${LS_OPTIONS}"
 alias ll="ls ${LS_OPTIONS}"
 alias lhistory='fc -lfDE -1000'

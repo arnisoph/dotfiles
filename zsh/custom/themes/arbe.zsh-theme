@@ -43,9 +43,6 @@ function my_kubectl_context() {
     current_context="${current_context_raw}"
     [[ -z ${current_context} || ${current_context} == "null" ]] && return
 
-    current_context=${current_context%.*}
-    current_context=${current_context%.*}
-
     if [[ ${current_context} -regex-match ".*\.test\..*" ]]; then
       current_context=${current_context/test/%U%F{green}test%f%u}
     elif [[ ${current_context} -regex-match ".*\.int\..*" ]]; then
