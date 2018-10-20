@@ -131,7 +131,7 @@ alias mtr_nodns='mtr --report --report-wide --no-dns'
 
 alias salt='time salt -v'
 alias sudo='sudo ' # Make alias lookup
-alias sudoedit='vim ' # Make alias lookup
+alias sudoedit='sudo vim ' # Make alias lookup
 alias s='sudo ' # Make alias lookup
 
 alias ta='tail -f'
