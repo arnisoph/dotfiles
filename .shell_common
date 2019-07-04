@@ -67,7 +67,7 @@ alias dcp="docker-compose"
 alias dcm="docker-machine"
 
 alias gbr='git branch -r'
-alias gc='git commit -v -s'
+alias gc='git commit -v -s -S'
 alias gdc='git diff --cached'
 alias get='git fetch --prune --append --tags --all && git pull origin $(current_branch)'
 alias gfa='git fetch origin --all --prune'
@@ -77,6 +77,7 @@ alias glogp='git log --graph --abbrev-commit --decorate --all --format=format:"%
 alias gmc='git merge --no-ff'
 alias grep="grep -E --color=auto -I --exclude-dir={.bzr,.cvs,.git,.hg,.svn}"
 alias gst='git status -s'
+alias gt='git tag -s'
 
 if [[ $ITERM_PROFILE == "Beamer" ]]; then
   alias htop="HTOPRC=/dev/null htop --no-color"
@@ -147,7 +148,7 @@ if [[ $_os == Darwin || $_os =~ .*BSD ]]; then
   alias cp='cp'
   alias mv='mv'
   alias rm='rm'
-  alias ports='netstat tulpena'
+  alias ports='netstat -n'
 else
   alias chgrp='chgrp --preserve-root'
   alias chmod='chmod --preserve-root'
