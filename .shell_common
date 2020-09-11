@@ -119,7 +119,7 @@ function kl() {
 }
 # Jump into a pod
 function kex() {
-  kubectl exec -it "$@" sh
+  kubectl exec -it "$@" -- bash
 }
 
 alias less="less -S"
@@ -130,6 +130,8 @@ alias lhistory='fc -lfDE -1000'
 alias m='minikube'
 alias mtr_dns='mtr --report --report-wide'
 alias mtr_nodns='mtr --report --report-wide --no-dns'
+
+alias exif_rename_photos="exiftool -d '%Y-%m-%d %H-%M %%03.c.%%e' '-filename<CreateDate' ."
 
 alias salt='time salt -v'
 alias sudo='sudo ' # Make alias lookup
