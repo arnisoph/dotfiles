@@ -49,7 +49,7 @@ ZSH_CUSTOM=${HOME}/.ohmyzsh/
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo colored-man)
+plugins=(git sudo colored-man-pages)
 
 source ${ZSH}/oh-my-zsh.sh
 
@@ -128,3 +128,9 @@ precmd() {
 [[ -e $HOME/.zsh_aliases ]] && source $HOME/.zsh_aliases
 
 true
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ab/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ab/bin/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ab/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ab/bin/google-cloud-sdk/completion.zsh.inc'; fi

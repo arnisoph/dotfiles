@@ -41,7 +41,7 @@ function my_kubectl_context() {
 
     current_context_raw="$(kubectl config current-context 2>/dev/null)"
     current_context="${current_context_raw}"
-    [[ -z ${current_context} || ${current_context} == "null" ]] && return
+    [[ -z ${current_context} || ${current_context} == "null" || ${SHOW_KUBECTL_KONTEXT} == "no" ]] && return
 
     if [[ ${current_context} -regex-match ".*\.test\..*" ]]; then
       current_context=${current_context/test/%U%F{green}test%f%u}
