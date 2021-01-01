@@ -51,6 +51,7 @@ ZSH_CUSTOM=${HOME}/.ohmyzsh/
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git sudo colored-man-pages)
 
+export DISABLE_MAGIC_FUNCTIONS=true
 source ${ZSH}/oh-my-zsh.sh
 
 # ZSH SETTINGS
@@ -94,7 +95,7 @@ _comp_options+=(globdots)
 alias zshrc='vim ~/.zshrc'
 
 # NUMBLOCK/KEYPAD FIXES FROM http://superuser.com/questions/742171/zsh-z-shell-numpad-numlock-doesnt-work
-if [[ -n "$(which bindkey)" ]]; then
+if [[ -n "$(which bindkey 2>/dev/null)" ]]; then
   # 0 . Enter
   bindkey -s "^[OM" "^M"
 fi
