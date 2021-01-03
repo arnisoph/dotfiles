@@ -193,7 +193,7 @@ l8security() {
   read -r resp
   if [[ "$resp" == 'YES' ]]; then
     echo -e "\nExecuting ${command}.."
-    zsh <<< "${command}" &!
+    eval "${command}"
   fi
 }
 
