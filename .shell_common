@@ -143,7 +143,7 @@ alias m='minikube'
 alias mtr_dns='mtr --report --report-wide'
 alias mtr_nodns='mtr --report --report-wide --no-dns'
 
-alias exif_rename_photos="exiftool -d '%Y-%m-%d %H-%M %%03.c.%%e' '-filename<CreateDate' ."
+alias exif_rename_photos="exiftool -d '%Y-%m-%d %H-%M-%S %%03.c.%%e' '-filename<CreateDate'"
 
 alias salt='time salt -v'
 alias sudo='sudo ' # Make alias lookup
@@ -185,6 +185,18 @@ halt() {
 reboot() {
   l8security "/sbin/shutdown -rf +1"
 }
+
+l8security() {
+  command="$1"
+
+  echo "Are you sure? Type 'YES' now or abort with ^C:"
+  read -r resp
+  if [[ "$resp" == 'YES' ]]; then
+    echo -e "\nExecuting ${command}.."
+    zsh <<< "${command}" &!
+  fi
+}
+
 
 checksum() {
   sha256sum $@

@@ -101,17 +101,6 @@ if [[ -n "$(which bindkey 2>/dev/null)" ]]; then
 fi
 
 # MISC
-l8security() {
-  command="$1"
-
-  echo "Are you sure? Type 'YES, do as I say' now or abort with ^C:"
-  read -r resp
-  if [[ "$resp" == 'YES, do as I say' ]]; then
-    echo -e "\nExecuting ${command}.."
-    zsh <<< "${command}" &!
-  fi
-}
-
 preexec() {
     typeset -gi CALCTIME=1
     typeset -gi CMDSTARTTIME=SECONDS
