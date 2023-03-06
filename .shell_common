@@ -24,11 +24,12 @@ ${HOME}/bin/:\
 ${HOME}/bin/android:\
 ${HOME}/packer:\
 ${HOME}/terraform:\
-${PATH}:\
 /opt/local/bin:\
+/opt/homebrew/bin:\
 /usr/local/bin/python:\
 /usr/local/bin:\
 /usr/local/sbin:\
+${PATH}:\
 "
 
 export SHOW_KUBECTL_KONTEXT="yes"

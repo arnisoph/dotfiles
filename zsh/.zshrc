@@ -117,10 +117,11 @@ precmd() {
 [[ -e $HOME/.zsh_local ]] && source $HOME/.zsh_local
 [[ -e $HOME/.zsh_aliases ]] && source $HOME/.zsh_aliases
 
-true
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/ab/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ab/bin/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "${HOME}/bin/google-cloud-sdk/path.zsh.inc" ]; then . "${HOME}/bin/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/ab/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ab/bin/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "${HOME}/bin/google-cloud-sdk/completion.zsh.inc" ]; then . "${HOME}/bin/google-cloud-sdk/completion.zsh.inc"; fi
+
+true
